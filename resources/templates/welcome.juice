@@ -7,12 +7,12 @@
 { block 'content'}
     <main class="flex flex-col items-center w-screen gap-4">
         <div class="text-4xl">alt | články</div>
-        { foreach $posts as $post }
+        { for $index = count($posts) - 1; $index >= 0; $index--}
             <div class="w-9/12 border-2 bg-primary border-yellow p-2">
-                <div class='text-2xl'>{{ $post->title }}</div>
-                <div class="text-sm">Majkel {{ $post->date->format(\DateTimeInterface::ISO8601) }}</div>
-                <div class="markdown ">{! (new \Majkel\Mathdown\Mathdown())->text($post->content) !}</div>
+                <div class='text-2xl'>{{ $posts[$index]->title }}</div>
+                <div class="text-sm">Majkel {{ $posts[$index]->date->format('Y-m-d') }}</div>
+                <div class="markdown ">{! (new \Majkel\Mathdown\Mathdown())->text($posts[$index]->content) !}</div>
             </div>
-        { /foreach }
+        { /for }
     </main>
 { /block }

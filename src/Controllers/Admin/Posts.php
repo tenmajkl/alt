@@ -24,6 +24,8 @@ class Posts
         $post = new Post(count($data->all(Post::class)), $request->get('title'), $request->get('content'), new DateTimeImmutable());
 
         $data->set($post);
+		$data->save();
         return redirect('/');
     }
 }
+

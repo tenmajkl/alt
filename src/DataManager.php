@@ -12,16 +12,16 @@ class DataManager implements DataManagerContract
 {
     private array $data = [];
 
-    public function __destruct() 
-    {
+	public function save(): void
+	{
         foreach ($this->data as $entity => $data) {
             file_put_contents(
                 config('data_manager.storage').DIRECTORY_SEPARATOR.CaseConverter::toSnake($entity).'.php',
                 '<?php return '.var_export($data, true).';'
             );
-        }
-    }
-
+		}
+	}
+	
     public function get(string $entity, mixed $key): ?object
     {
         $this->load($entity);
@@ -79,3 +79,4 @@ class DataManager implements DataManagerContract
         return null;
     }
 }
+

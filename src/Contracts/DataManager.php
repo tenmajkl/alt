@@ -9,5 +9,8 @@ interface DataManager
     public function set(object $entity): self;
 
     public function all(string $entity): array;
- 
+
+	public function save(): void;
+	
 }
+
