@@ -1,0 +1,16 @@
+{ extends 'layout' }
+
+{block 'title'}
+    přihlášení 
+{/block}
+
+{ block 'content'}
+    <main class="w-screen h-screen flex items-center justify-center flex-col">
+        <form method='POST' class='flex flex-col gap-2'>
+            { csrf }
+            <input type="text" class="border-yellow bg-primary border-2 outline-none p-2" placeholder='titulek' name='title'>
+            <textarea name="content" cols="30" rows="10" class='border-yellow bg-primary outline-none p-2 border-2'></textarea>
+            <button class='bg-primary border-2 border-yellow p-2'>Vytvořit</button>
+        </form>
+    </main>
+{ /block }

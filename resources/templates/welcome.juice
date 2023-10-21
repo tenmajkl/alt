@@ -1,0 +1,17 @@
+{ extends 'layout' }
+
+{block 'title'}
+     články
+{/block}
+
+{ block 'content'}
+    { foreach $posts as $post }
+        <div>
+            <span class='text-xl'>{{ $post->title }}</span>
+            Majkel {{ $post->date->format()}}
+        </div>
+        <hr>
+        
+        {! (new \Majkel\Mathdown\Mathdown())->text($post->content) !}
+    { /foreach }
+{ /block }

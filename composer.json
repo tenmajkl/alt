@@ -1,0 +1,28 @@
+{
+    "name": "lemon_framework/app",
+    "description": "Lemon Framework base app",
+    "type": "project",
+    "require": {
+        "lemon_framework/lemon": "^3.16",
+        "majkel/mathdown": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests"
+        }
+    },
+    "require-dev": {
+        "pestphp/pest": "^1.21",
+        "phpstan/phpstan": "^1.8"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}

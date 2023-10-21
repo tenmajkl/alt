@@ -1,0 +1,16 @@
+{ extends 'layout' }
+
+{block 'title'}
+    přihlášení 
+{/block}
+
+{ block 'content'}
+    <main class="w-screen h-screen flex items-center justify-center flex-col">
+        <form method='POST' class='flex flex-col gap-2'>
+            { csrf }
+            <input type="text" class="border-yellow bg-primary border-2 outline-none p-2" placeholder='jméno' name='name'>
+            <input type="password" class="border-yellow bg-primary border-2 outline-none p-2" placeholder='heslo' name='password'>
+            <button class='bg-primary border-2 border-yellow p-2'>Přihlásit</button>
+        </form>
+    </main>
+{ /block }
