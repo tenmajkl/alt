@@ -11,7 +11,7 @@ class Welcome
 {
     public function handle(DataManager $data, Session $session): Template
     {
-        $admin = $session->get('name') !== null;
+        $admin = $session->has('null');
         return template('welcome', posts: $data->all(Post::class), admin: $admin);
     }
 }

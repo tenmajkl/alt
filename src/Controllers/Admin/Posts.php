@@ -21,7 +21,9 @@ class Posts
             'content' => 'min:8',
         ], redirect('/posts/create'));
 
-        $data->set(new Post(count($data->all(Post::class)), $request->get('title'), $request->get('content'), new DateTimeImmutable()));
+        $post = new Post(count($data->all(Post::class)), $request->get('title'), $request->get('content'), new DateTimeImmutable());
+
+        $data->set($post);
         return redirect('/');
     }
 }

@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind component;
 @tailwind utilities;
+
+.markdown * {
+    all: revert !important;
+    color: #ebdbb2 !important;
+}

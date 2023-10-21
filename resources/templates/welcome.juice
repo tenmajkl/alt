@@ -5,13 +5,14 @@
 {/block}
 
 { block 'content'}
-    { foreach $posts as $post }
-        <div>
-            <span class='text-xl'>{{ $post->title }}</span>
-            Majkel {{ $post->date->format()}}
-        </div>
-        <hr>
-        
-        {! (new \Majkel\Mathdown\Mathdown())->text($post->content) !}
-    { /foreach }
+    <main class="flex flex-col items-center w-screen gap-4">
+        <div class="text-4xl">alt | články</div>
+        { foreach $posts as $post }
+            <div class="w-9/12 border-2 bg-primary border-yellow p-2">
+                <div class='text-2xl'>{{ $post->title }}</div>
+                <div class="text-sm">Majkel {{ $post->date->format(\DateTimeInterface::ISO8601) }}</div>
+                <div class="markdown ">{! (new \Majkel\Mathdown\Mathdown())->text($post->content) !}</div>
+            </div>
+        { /foreach }
+    </main>
 { /block }
